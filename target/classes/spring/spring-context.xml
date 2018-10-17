@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+     <!--DataAnalyze-->
+     <bean id="analyzationImpl" class="DataAnlyze.ImplementsPack.AnalyzationImpl"></bean>
+
+
+      <!--LossyCompression-->
+     <bean id="realtimeCompression" class="LossyCompression.Implements.RealTimeCompression">
+          <property  name="typeCollection"  ref="typeOfFile"/>
+          <property  name="spt"  ref="spotToolsImpl"/>
+     </bean>
+
+     <!--Model-->
+     <bean id="afterObject" class="Model.ImplementsPack.AfterObject"></bean>
+     <bean id="aObject" class="Model.ImplementsPack.AObject"></bean>
+     <bean id="fSubSpot" class="Model.ImplementsPack.fSubSpot"></bean>
+     <bean id="iSubSpot" class="Model.ImplementsPack.ISubSpot"></bean>
+     <bean id="typeOfFile" class="Model.ImplementsPack.TypeOfFile"></bean>
+
+     <!--NoLossyCompression-->
+
+
+     <!--Tools-->
+     <bean id="spotToolsImpl"  class="Tools.Inplements.SpotToolsImpl"></bean>
+</beans>
