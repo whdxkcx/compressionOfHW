@@ -13,5 +13,8 @@ public interface AnalyzationOfFile {
     public ArrayList<Float>  getAmplitudeFromFile(String filePath) throws IOException;
     //获取某一列的值用于分析
     public void getOneLineOfFile(String objId,String filePath,String oneObjectPath) throws IOException;
-
+    //获取每一项指标的标准差（计算波动性）
+     public ArrayList<Double> getStaadardDeviationBaseLine(String filePath) throws  IOException;
+     //计算每一列的平均值。
+     public ArrayList<Double> getMeanOfBaseLine(String filePath)  throws  IOException;
 }

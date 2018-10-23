@@ -39,8 +39,10 @@ public class fSubSpot extends Spot {
 
     @Override
     public String toString() {
-        if(flag)
-        return x+"?"+String.format("%.2f",y);
-        return x+"?"+String.format("%.2f",y)+"?"+String.format("%.2f",y);
+        if(flag||y==z)
+            if(y!=0) return x + "?" + y;
+            else  return x+":";
+         return x + "?" + String.format("%.2f", y) + "?" + String.format("%.2f", y);
+
     }
 }

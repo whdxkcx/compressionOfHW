@@ -11,8 +11,8 @@ public class NoLossyCompressionImpl implements NoLossyCompressionInterface {
 
     public static void main(String[] args) throws IOException {
         long startTime = System.currentTimeMillis();
-        nlcp.compressionByEncode("E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\middleOutput\\UCELLnew(change20new).csv",
-                "E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\output\\UCELLnew(change20new).csv");
+        nlcp.compressionByEncode("E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\middleOutput\\UCELLnew(change2010190.15new).csv",
+                "E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\output\\UCELLnew(change2010190.15new).csv");
         long endTime = System.currentTimeMillis();
         long time = endTime - startTime;
         System.out.println("压缩时间为：" + time/1000 + "秒");

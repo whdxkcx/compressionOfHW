@@ -13,7 +13,7 @@ public class RealTimeCompression implements LossyCompression {
 
     private static int columnCount = 0;//The number of quotas.
     private static boolean isFlag = true;
-    public static float p=0.5f;
+    public static float p=0.20f;
     public TypeOfFile typeCollection;
     public SpotTools spt;
 
@@ -144,10 +144,13 @@ public class RealTimeCompression implements LossyCompression {
     public ArrayList<Spot> revolvingDoorBaseLine(ArrayList<String> columnList,double thresjold) {
         if (columnList == null || columnList.size() == 0)
             return null;
+        //使用振幅的百分之一
         float e=(float)thresjold/20;
         float newValue=Float.parseFloat(columnList.get(0));
+        //使用动态阈值
         if(newValue==0)  e=0.05f;
         else e=Math.abs(newValue)*p;
+        int spotCount=0;
         ArrayList<Spot> resultList = new ArrayList<>();
         fSubSpot upSpot = null;
         fSubSpot downSpot = null;
@@ -163,11 +166,9 @@ public class RealTimeCompression implements LossyCompression {
             return null;
         }
         resultList.add(nowSpot);
-
-
+        spotCount++;
         double upSlope = Integer.MIN_VALUE;
         double downSlope = Integer.MAX_VALUE;
-
 
         for (int i = 1; i < columnList.size(); i++) {
             nowSpot = new fSubSpot(i, Float.parseFloat(columnList.get(i)));
@@ -177,29 +178,49 @@ public class RealTimeCompression implements LossyCompression {
                 upSlope = tempUpSlope;
             if (tempDownSlope < downSlope)
                 downSlope = tempDownSlope;
-            if (i == columnList.size() - 1&&downSlope >=upSlope) {
+            //最后一个值依然在斜率范围之内。
+            if (i == columnList.size() - 1) {
                 preSpot = (fSubSpot) resultList.get(resultList.size() - 1);
+                spotCount++;
+                preSpot.setX(spotCount);
                 preSpot.setZ(Float.parseFloat(columnList.get(i)));
                 preSpot.flag = false;
             }
-            if (downSlope <upSlope) {
+
+
+            //当下斜率小于上斜率时
+            else if (downSlope <upSlope) {
                 preSpot = (fSubSpot) resultList.get(resultList.size() - 1);
+                //如果当前的索引值和前一个索引值不是相邻的,则存储元素个数。
                 if (preSpot.getX() != i - 1) {
+                    preSpot.setX(spotCount);
                     preSpot.setZ(Float.parseFloat(columnList.get(i - 1)));
                     preSpot.flag = false;
                 }
+                else preSpot.setX(1);
+                //重新设置动态阈值，如果阈值为0
                 newValue=Float.parseFloat(columnList.get(i));
                 if(newValue==0)  e=0.05f;
                 else e=Math.abs(newValue)*p;
+
+                //重新计数
+                spotCount=1;
                 upSpot.setX(i);
                 upSpot.setY(Float.parseFloat(columnList.get(i)) + e);
                 downSpot.setX(i);
                 downSpot.setY(Float.parseFloat(columnList.get(i)) - e);
+
+                //初始值的元素个数为
                 nowSpot = new fSubSpot(i, Float.parseFloat(columnList.get(i)));
                 resultList.add(nowSpot);
+                //如果是最后一个值的时候发生超出行为，那么把x设为元素个数1.
+                if(columnList.size()-1==i)
+                    nowSpot.setX(spotCount);
+                //重新初始化一个斜率。
                 upSlope = Float.MIN_VALUE;
                 downSlope = Float.MAX_VALUE;
             }
+            else  spotCount++;//否则计数加一
         }
         return resultList;
     }
@@ -219,6 +240,8 @@ public class RealTimeCompression implements LossyCompression {
         fSubSpot downSpot = null;
         ISubSpot nowSpot = null;
         ISubSpot preSpot = null;
+        //统计当前阶段的数据的个数。
+        int spotCount=0;
         try {
             upSpot = new fSubSpot(0, Float.parseFloat(columnList.get(0)) + e);
             downSpot = new fSubSpot(0, Float.parseFloat(columnList.get(0)) - e);
@@ -229,6 +252,7 @@ public class RealTimeCompression implements LossyCompression {
             return null;
         }
         resultList.add(nowSpot);
+        spotCount++;
         double upSlope = Integer.MIN_VALUE;
         double downSlope = Integer.MAX_VALUE;
 
@@ -243,27 +267,43 @@ public class RealTimeCompression implements LossyCompression {
                 downSlope = tempDownSlope;
             if (i == columnList.size() - 1&&downSlope >=upSlope) {
                 preSpot = (ISubSpot) resultList.get(resultList.size() - 1);
+                spotCount++;
                 preSpot.setZ(Long.parseLong(columnList.get(i)));
+                preSpot.setX(spotCount);
                 preSpot.flag = false;
             }
-            if (downSlope <upSlope) {
+            else if (downSlope <upSlope) {
                 preSpot = (ISubSpot) resultList.get(resultList.size() - 1);
+                //如果当前的索引值和前一个索引值不是相邻的,则存储元素个数。
                 if (preSpot.getX() != i - 1) {
                     preSpot.setZ(Long.parseLong(columnList.get(i - 1)));
+                    preSpot.setX(spotCount);
                     preSpot.flag = false;
                 }
-               newValue=Float.parseFloat(columnList.get(i));
+                else preSpot.setX(1);
+                //使用动态阈值
+                newValue=Float.parseFloat(columnList.get(i));
                 if(newValue==0)  e=0.05f;
                 else e=Math.abs(newValue)*p;
+                //重新设置元素个数
+                spotCount=1;
+
+                //重新设置上斜率点和下斜率点
                 upSpot.setX(i);
                 upSpot.setY(Long.parseLong(columnList.get(i)) + e);
                 downSpot.setX(i);
                 downSpot.setY(Long.parseLong(columnList.get(i)) - e);
+                //重新设置起始点
                 nowSpot = new ISubSpot(i, (long)Float.parseFloat(columnList.get(i)));
                 resultList.add(nowSpot);
+                //如果是最后一个值的时候发生超出行为，那么把x设为元素个数1.
+                if(columnList.size()-1==i)
+                    nowSpot.setX(spotCount);
+                //重新给上下斜率初始化一个值。
                 upSlope = Float.MIN_VALUE;
                 downSlope = Float.MAX_VALUE;
             }
+            else spotCount++;//元素个数加1
         }
         return resultList;
     }

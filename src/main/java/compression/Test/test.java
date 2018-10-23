@@ -24,7 +24,7 @@ public class test {
 
 //        System.out.println(rtc.revolvingDoorBaseLine(list));
         long startTime = System.currentTimeMillis();
-        compressionTest("E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\input\\UCELLnew.csv","E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\middleOutput\\UCELLnew(change20new).csv");
+        compressionTest("E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\input\\UCELLnew.csv","E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\middleOutput\\UCELLnew(change2010190.20new).csv");
         long endTime = System.currentTimeMillis();
         double time = endTime - startTime;
         System.out.println("压缩时间为：" + time/1000 + "s");
