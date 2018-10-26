@@ -13,7 +13,7 @@ public class RealTimeCompression implements LossyCompression {
 
     private static int columnCount = 0;//The number of quotas.
     private static boolean isFlag = true;
-    public static float p=0.20f;
+    public static float p=0.05f;
     public TypeOfFile typeCollection;
     public SpotTools spt;
 
@@ -65,10 +65,10 @@ public class RealTimeCompression implements LossyCompression {
     }
 
 
-        //It's a for Float.
+        //输出到文件
     public void printAfterObject(String filePath, AfterObject afo,int num) throws IOException {
         BufferedWriter out = new BufferedWriter(new FileWriter(filePath, true));
-        out.write(num+",");
+//        out.write(num+",");
         out.write(afo.getStartTime() + ",");
         out.write(afo.getEndTime() + ",");
         out.write(afo.getObjId() + ",");
@@ -76,8 +76,9 @@ public class RealTimeCompression implements LossyCompression {
         for (int i=0;i<afo.getQuotaList().size();i++) {
             ArrayList<Spot>  spotList=afo.getQuotaList().get(i);
             if(TypeOfFile.typeList[i]==1) {
-                if (spotList.size() == 1 && !spotList.get(0).flag && ((fSubSpot) spotList.get(0)).getY() == ((fSubSpot) spotList.get(0)).getZ()) {
-                    out.write(((fSubSpot) spotList.get(0)).getY() + ":");
+                //如果整列只有一个元素，并且整列为0，那么输出空字符串。
+                if (spotList.size() == 1 &&((fSubSpot)spotList.get(0)).getY()==0&&((fSubSpot)spotList.get(0)).getZ()==0) {
+                    out.write("");
                 } else
                     for (int j = 0; j < spotList.size(); j++) {
                         if (j == spotList.size() - 1)
@@ -86,8 +87,9 @@ public class RealTimeCompression implements LossyCompression {
                             out.write(spotList.get(j) + ";");
                     }
             }else{
-                if (spotList.size() == 1 && !spotList.get(0).flag && ((ISubSpot) spotList.get(0)).getY() == ((ISubSpot) spotList.get(0)).getZ()) {
-                    out.write(((ISubSpot) spotList.get(0)).getY() + ":");
+                //如果整列只有一个元素，并且整列为0，那么输出空字符串。
+                if (spotList.size() == 1 && ((ISubSpot) spotList.get(0)).getY() == 0&&((ISubSpot) spotList.get(0)).getZ()==0) {
+                    out.write("");
                 } else
                     for (int j = 0; j < spotList.size(); j++) {
                         if (j == spotList.size() - 1)
@@ -167,8 +169,10 @@ public class RealTimeCompression implements LossyCompression {
         }
         resultList.add(nowSpot);
         spotCount++;
-        double upSlope = Integer.MIN_VALUE;
-        double downSlope = Integer.MAX_VALUE;
+        double upSlope = 0;
+        double downSlope = 0;
+        upSlope = -Float.MAX_VALUE;
+        downSlope = Float.MAX_VALUE;
 
         for (int i = 1; i < columnList.size(); i++) {
             nowSpot = new fSubSpot(i, Float.parseFloat(columnList.get(i)));
@@ -179,7 +183,7 @@ public class RealTimeCompression implements LossyCompression {
             if (tempDownSlope < downSlope)
                 downSlope = tempDownSlope;
             //最后一个值依然在斜率范围之内。
-            if (i == columnList.size() - 1) {
+            if (i == columnList.size() - 1&&downSlope >=upSlope) {
                 preSpot = (fSubSpot) resultList.get(resultList.size() - 1);
                 spotCount++;
                 preSpot.setX(spotCount);
@@ -191,18 +195,13 @@ public class RealTimeCompression implements LossyCompression {
             //当下斜率小于上斜率时
             else if (downSlope <upSlope) {
                 preSpot = (fSubSpot) resultList.get(resultList.size() - 1);
-                //如果当前的索引值和前一个索引值不是相邻的,则存储元素个数。
-                if (preSpot.getX() != i - 1) {
+                //存储元素个数。
                     preSpot.setX(spotCount);
                     preSpot.setZ(Float.parseFloat(columnList.get(i - 1)));
-                    preSpot.flag = false;
-                }
-                else preSpot.setX(1);
-                //重新设置动态阈值，如果阈值为0
+                //重新设置动态阈值
                 newValue=Float.parseFloat(columnList.get(i));
                 if(newValue==0)  e=0.05f;
                 else e=Math.abs(newValue)*p;
-
                 //重新计数
                 spotCount=1;
                 upSpot.setX(i);
@@ -217,7 +216,7 @@ public class RealTimeCompression implements LossyCompression {
                 if(columnList.size()-1==i)
                     nowSpot.setX(spotCount);
                 //重新初始化一个斜率。
-                upSlope = Float.MIN_VALUE;
+                upSlope = -Float.MAX_VALUE;
                 downSlope = Float.MAX_VALUE;
             }
             else  spotCount++;//否则计数加一
@@ -255,6 +254,8 @@ public class RealTimeCompression implements LossyCompression {
         spotCount++;
         double upSlope = Integer.MIN_VALUE;
         double downSlope = Integer.MAX_VALUE;
+        upSlope = -Float.MAX_VALUE;
+        downSlope = Float.MAX_VALUE;
 
 
         for (int i = 1; i < columnList.size(); i++) {
@@ -265,23 +266,20 @@ public class RealTimeCompression implements LossyCompression {
                 upSlope = tempUpSlope;
             if (tempDownSlope < downSlope)
                 downSlope = tempDownSlope;
-            if (i == columnList.size() - 1&&downSlope >=upSlope) {
+            if (i == columnList.size() - 1&&downSlope >=upSlope) {//如果到达最后一个元素，并且没有超出阈值范围
                 preSpot = (ISubSpot) resultList.get(resultList.size() - 1);
                 spotCount++;
                 preSpot.setZ(Long.parseLong(columnList.get(i)));
                 preSpot.setX(spotCount);
                 preSpot.flag = false;
             }
-            else if (downSlope <upSlope) {
+            else if (downSlope <upSlope) {//数据超出阈值范围
                 preSpot = (ISubSpot) resultList.get(resultList.size() - 1);
-                //如果当前的索引值和前一个索引值不是相邻的,则存储元素个数。
-                if (preSpot.getX() != i - 1) {
+                //存储元素个数。
                     preSpot.setZ(Long.parseLong(columnList.get(i - 1)));
                     preSpot.setX(spotCount);
-                    preSpot.flag = false;
-                }
-                else preSpot.setX(1);
-                //使用动态阈值
+
+                //重新设置动态阈值
                 newValue=Float.parseFloat(columnList.get(i));
                 if(newValue==0)  e=0.05f;
                 else e=Math.abs(newValue)*p;
@@ -300,7 +298,7 @@ public class RealTimeCompression implements LossyCompression {
                 if(columnList.size()-1==i)
                     nowSpot.setX(spotCount);
                 //重新给上下斜率初始化一个值。
-                upSlope = Float.MIN_VALUE;
+                upSlope = -Float.MAX_VALUE;
                 downSlope = Float.MAX_VALUE;
             }
             else spotCount++;//元素个数加1
