@@ -16,6 +16,8 @@ public class RealTimeCompression implements LossyCompression {
     public static float p=0.05f;
     public TypeOfFile typeCollection;
     public SpotTools spt;
+    //统计压缩后压缩率变大的列数。
+    public int comCount=0;
 
     public void setSpt(SpotTools spt) {
         this.spt = spt;
@@ -62,10 +64,16 @@ public class RealTimeCompression implements LossyCompression {
         }
         afo = compressionBaseObject(allList);
         printAfterObject(compressionPath, afo,num);
+        System.out.println(comCount);
+    }
+
+    @Override
+    public void bestCurveFittingCompression(String originalPath, String compressionPath) throws IOException {
+
     }
 
 
-        //输出到文件
+    //输出到文件
     public void printAfterObject(String filePath, AfterObject afo,int num) throws IOException {
         BufferedWriter out = new BufferedWriter(new FileWriter(filePath, true));
 //        out.write(num+",");
@@ -174,7 +182,14 @@ public class RealTimeCompression implements LossyCompression {
         upSlope = -Float.MAX_VALUE;
         downSlope = Float.MAX_VALUE;
 
+        //原始列的大小
+        double oriLen=0;
+        //压缩后的列的大小
+        double comLen=0;
+
+        oriLen=columnList.get(0).length();
         for (int i = 1; i < columnList.size(); i++) {
+            oriLen+=columnList.get(i).length();
             nowSpot = new fSubSpot(i, Float.parseFloat(columnList.get(i)));
             float tempUpSlope = spt.slopCalculation(upSpot, nowSpot);
             float tempDownSlope = spt.slopCalculation(downSpot, nowSpot);
@@ -187,7 +202,8 @@ public class RealTimeCompression implements LossyCompression {
                 preSpot = (fSubSpot) resultList.get(resultList.size() - 1);
                 spotCount++;
                 preSpot.setX(spotCount);
-                preSpot.setZ(Float.parseFloat(columnList.get(i)));
+                preSpot.setZ(Float.parseFloat(columnList.get(i)));//行结束点，也是一个段结束点
+                comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
                 preSpot.flag = false;
             }
 
@@ -197,7 +213,8 @@ public class RealTimeCompression implements LossyCompression {
                 preSpot = (fSubSpot) resultList.get(resultList.size() - 1);
                 //存储元素个数。
                     preSpot.setX(spotCount);
-                    preSpot.setZ(Float.parseFloat(columnList.get(i - 1)));
+                    preSpot.setZ(Float.parseFloat(columnList.get(i - 1)));//段结束点2
+                    comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
                 //重新设置动态阈值
                 newValue=Float.parseFloat(columnList.get(i));
                 if(newValue==0)  e=0.05f;
@@ -213,14 +230,19 @@ public class RealTimeCompression implements LossyCompression {
                 nowSpot = new fSubSpot(i, Float.parseFloat(columnList.get(i)));
                 resultList.add(nowSpot);
                 //如果是最后一个值的时候发生超出行为，那么把x设为元素个数1.
-                if(columnList.size()-1==i)
-                    nowSpot.setX(spotCount);
+                if(columnList.size()-1==i) {
+                    nowSpot.setX(spotCount);//段结束点3
+                    comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
+                }
                 //重新初始化一个斜率。
                 upSlope = -Float.MAX_VALUE;
                 downSlope = Float.MAX_VALUE;
             }
             else  spotCount++;//否则计数加一
         }
+        if(comLen/oriLen>1)
+            comCount++;
+//        System.out.print(String.format("%.2f",comLen/oriLen)+",");
         return resultList;
     }
 
@@ -257,8 +279,13 @@ public class RealTimeCompression implements LossyCompression {
         upSlope = -Float.MAX_VALUE;
         downSlope = Float.MAX_VALUE;
 
-
+        //原始列的大小
+        double oriLen=0;
+        //压缩后的列的大小
+        double comLen=0;
+        oriLen=columnList.get(0).length();
         for (int i = 1; i < columnList.size(); i++) {
+            oriLen+=columnList.get(i).length();
             nowSpot = new ISubSpot(i,(long)Float.parseFloat(columnList.get(i)));
             float tempUpSlope = spt.slopCalculation(upSpot, nowSpot);
             float tempDownSlope = spt.slopCalculation(downSpot, nowSpot);
@@ -269,7 +296,8 @@ public class RealTimeCompression implements LossyCompression {
             if (i == columnList.size() - 1&&downSlope >=upSlope) {//如果到达最后一个元素，并且没有超出阈值范围
                 preSpot = (ISubSpot) resultList.get(resultList.size() - 1);
                 spotCount++;
-                preSpot.setZ(Long.parseLong(columnList.get(i)));
+                preSpot.setZ(Long.parseLong(columnList.get(i)));//段结束点1
+                comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
                 preSpot.setX(spotCount);
                 preSpot.flag = false;
             }
@@ -277,8 +305,8 @@ public class RealTimeCompression implements LossyCompression {
                 preSpot = (ISubSpot) resultList.get(resultList.size() - 1);
                 //存储元素个数。
                     preSpot.setZ(Long.parseLong(columnList.get(i - 1)));
-                    preSpot.setX(spotCount);
-
+                    preSpot.setX(spotCount);//段结束点2
+                    comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
                 //重新设置动态阈值
                 newValue=Float.parseFloat(columnList.get(i));
                 if(newValue==0)  e=0.05f;
@@ -295,14 +323,19 @@ public class RealTimeCompression implements LossyCompression {
                 nowSpot = new ISubSpot(i, (long)Float.parseFloat(columnList.get(i)));
                 resultList.add(nowSpot);
                 //如果是最后一个值的时候发生超出行为，那么把x设为元素个数1.
-                if(columnList.size()-1==i)
-                    nowSpot.setX(spotCount);
+                if(columnList.size()-1==i) {
+                    nowSpot.setX(spotCount);//行结束点，也是段结束点3。
+                    comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
+                }
                 //重新给上下斜率初始化一个值。
                 upSlope = -Float.MAX_VALUE;
                 downSlope = Float.MAX_VALUE;
             }
             else spotCount++;//元素个数加1
         }
+        if(comLen/oriLen>1)
+            comCount++;
+//            System.out.print(String.format("%.2f",comLen/oriLen)+",");
         return resultList;
     }
     public static float thresholdGenerate() {
