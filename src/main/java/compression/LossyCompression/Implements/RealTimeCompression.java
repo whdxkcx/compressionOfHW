@@ -13,7 +13,7 @@ public class RealTimeCompression implements LossyCompression {
 
     private static int columnCount = 0;//The number of quotas.
     private static boolean isFlag = true;
-    public static float p=0.5f;
+    public static float p=0.05f;
     public TypeOfFile typeCollection;
     public SpotTools spt;
 
@@ -168,8 +168,14 @@ public class RealTimeCompression implements LossyCompression {
         double upSlope = Integer.MIN_VALUE;
         double downSlope = Integer.MAX_VALUE;
 
+        //记录原始列的大小
+        int oriLen=0;
+        //记录压缩之后的列的大小。
+        int comLen=0;
 
+        oriLen=columnList.get(0).length();
         for (int i = 1; i < columnList.size(); i++) {
+            oriLen+=columnList.get(i).length();
             nowSpot = new fSubSpot(i, Float.parseFloat(columnList.get(i)));
             float tempUpSlope = spt.slopCalculation(upSpot, nowSpot);
             float tempDownSlope = spt.slopCalculation(downSpot, nowSpot);
@@ -179,12 +185,12 @@ public class RealTimeCompression implements LossyCompression {
                 downSlope = tempDownSlope;
             if (i == columnList.size() - 1&&downSlope >=upSlope) {
                 preSpot = (fSubSpot) resultList.get(resultList.size() - 1);
-                preSpot.setZ(Float.parseFloat(columnList.get(i)));
+                preSpot.setZ(Float.parseFloat(columnList.get(i)));//一个段的结束2
                 preSpot.flag = false;
             }
             if (downSlope <upSlope) {
                 preSpot = (fSubSpot) resultList.get(resultList.size() - 1);
-                if (preSpot.getX() != i - 1) {
+                if (preSpot.getX() != i - 1) {//一个段的结束1
                     preSpot.setZ(Float.parseFloat(columnList.get(i - 1)));
                     preSpot.flag = false;
                 }
