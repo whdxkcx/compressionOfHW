@@ -16,6 +16,8 @@ public class RealTimeCompression implements LossyCompression {
     public static float p=0.05f;
     public TypeOfFile typeCollection;
     public SpotTools spt;
+    //统计压缩后压缩率变大的列数。
+    public int comCount=0;
 
     public void setSpt(SpotTools spt) {
         this.spt = spt;
@@ -62,13 +64,19 @@ public class RealTimeCompression implements LossyCompression {
         }
         afo = compressionBaseObject(allList);
         printAfterObject(compressionPath, afo,num);
+        System.out.println(comCount);
+    }
+
+    @Override
+    public void bestCurveFittingCompression(String originalPath, String compressionPath) throws IOException {
+
     }
 
 
-        //It's a for Float.
+    //输出到文件
     public void printAfterObject(String filePath, AfterObject afo,int num) throws IOException {
         BufferedWriter out = new BufferedWriter(new FileWriter(filePath, true));
-        out.write(num+",");
+//        out.write(num+",");
         out.write(afo.getStartTime() + ",");
         out.write(afo.getEndTime() + ",");
         out.write(afo.getObjId() + ",");
@@ -76,8 +84,9 @@ public class RealTimeCompression implements LossyCompression {
         for (int i=0;i<afo.getQuotaList().size();i++) {
             ArrayList<Spot>  spotList=afo.getQuotaList().get(i);
             if(TypeOfFile.typeList[i]==1) {
-                if (spotList.size() == 1 && !spotList.get(0).flag && ((fSubSpot) spotList.get(0)).getY() == ((fSubSpot) spotList.get(0)).getZ()) {
-                    out.write(((fSubSpot) spotList.get(0)).getY() + ":");
+                //如果整列只有一个元素，并且整列为0，那么输出空字符串。
+                if (spotList.size() == 1 &&((fSubSpot)spotList.get(0)).getY()==0&&((fSubSpot)spotList.get(0)).getZ()==0) {
+                    out.write("");
                 } else
                     for (int j = 0; j < spotList.size(); j++) {
                         if (j == spotList.size() - 1)
@@ -86,8 +95,9 @@ public class RealTimeCompression implements LossyCompression {
                             out.write(spotList.get(j) + ";");
                     }
             }else{
-                if (spotList.size() == 1 && !spotList.get(0).flag && ((ISubSpot) spotList.get(0)).getY() == ((ISubSpot) spotList.get(0)).getZ()) {
-                    out.write(((ISubSpot) spotList.get(0)).getY() + ":");
+                //如果整列只有一个元素，并且整列为0，那么输出空字符串。
+                if (spotList.size() == 1 && ((ISubSpot) spotList.get(0)).getY() == 0&&((ISubSpot) spotList.get(0)).getZ()==0) {
+                    out.write("");
                 } else
                     for (int j = 0; j < spotList.size(); j++) {
                         if (j == spotList.size() - 1)
@@ -108,7 +118,23 @@ public class RealTimeCompression implements LossyCompression {
 
 
 
+    /**
+
+     *@描述 对一个对象的所有数据进行压缩.
+
+     *@参数  [objectList]
+
+     *@返回值  Model.ImplementsPack.AfterObject
+
+     *@创建人  kcx
+
+     *@创建时间  2018/10/31
+
+     *@修改人和其它信息
+
+     */
     public AfterObject compressionBaseObject(ArrayList<AObject> objectList) {
+
         AfterObject afo = new AfterObject();
         afo.setQuotaList(new ArrayList<>());
         afo.setStartTime(objectList.get(0).getStartTime());
@@ -140,14 +166,32 @@ public class RealTimeCompression implements LossyCompression {
     }
 
 
+    /**
+
+     *@描述  对一个浮点列进行旋转门压缩
+
+     *@参数  [columnList, threshold]
+
+     *@返回值  java.util.ArrayList<Model.Abstract.Spot>
+
+     *@创建人  kcx
+
+     *@创建时间  2018/10/31
+
+     *@修改人和其它信息
+
+     */
     //It's for floating point number.
     public ArrayList<Spot> revolvingDoorBaseLine(ArrayList<String> columnList,double thresjold) {
         if (columnList == null || columnList.size() == 0)
             return null;
+        //使用振幅的百分之一
         float e=(float)thresjold/20;
         float newValue=Float.parseFloat(columnList.get(0));
+        //使用动态阈值
         if(newValue==0)  e=0.05f;
         else e=Math.abs(newValue)*p;
+        int spotCount=0;
         ArrayList<Spot> resultList = new ArrayList<>();
         fSubSpot upSpot = null;
         fSubSpot downSpot = null;
@@ -163,15 +207,16 @@ public class RealTimeCompression implements LossyCompression {
             return null;
         }
         resultList.add(nowSpot);
+        spotCount++;
+        double upSlope = 0;
+        double downSlope = 0;
+        upSlope = -Float.MAX_VALUE;
+        downSlope = Float.MAX_VALUE;
 
-
-        double upSlope = Integer.MIN_VALUE;
-        double downSlope = Integer.MAX_VALUE;
-
-        //记录原始列的大小
-        int oriLen=0;
-        //记录压缩之后的列的大小。
-        int comLen=0;
+        //原始列的大小
+        double oriLen=0;
+        //压缩后的列的大小
+        double comLen=0;
 
         oriLen=columnList.get(0).length();
         for (int i = 1; i < columnList.size(); i++) {
@@ -183,39 +228,75 @@ public class RealTimeCompression implements LossyCompression {
                 upSlope = tempUpSlope;
             if (tempDownSlope < downSlope)
                 downSlope = tempDownSlope;
+            //最后一个值依然在斜率范围之内。
             if (i == columnList.size() - 1&&downSlope >=upSlope) {
                 preSpot = (fSubSpot) resultList.get(resultList.size() - 1);
-                preSpot.setZ(Float.parseFloat(columnList.get(i)));//一个段的结束2
+                spotCount++;
+                preSpot.setX(spotCount);
+                preSpot.setZ(Float.parseFloat(columnList.get(i)));//行结束点，也是一个段结束点
+                comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
                 preSpot.flag = false;
             }
-            if (downSlope <upSlope) {
+
+
+            //当下斜率小于上斜率时
+            else if (downSlope <upSlope) {
                 preSpot = (fSubSpot) resultList.get(resultList.size() - 1);
-                if (preSpot.getX() != i - 1) {//一个段的结束1
-                    preSpot.setZ(Float.parseFloat(columnList.get(i - 1)));
-                    preSpot.flag = false;
-                }
+                //存储元素个数。
+                    preSpot.setX(spotCount);
+                    preSpot.setZ(Float.parseFloat(columnList.get(i - 1)));//段结束点2
+                    comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
+                //重新设置动态阈值
                 newValue=Float.parseFloat(columnList.get(i));
                 if(newValue==0)  e=0.05f;
                 else e=Math.abs(newValue)*p;
+                //重新计数
+                spotCount=1;
                 upSpot.setX(i);
                 upSpot.setY(Float.parseFloat(columnList.get(i)) + e);
                 downSpot.setX(i);
                 downSpot.setY(Float.parseFloat(columnList.get(i)) - e);
+
+                //初始值的元素个数为
                 nowSpot = new fSubSpot(i, Float.parseFloat(columnList.get(i)));
                 resultList.add(nowSpot);
-                upSlope = Float.MIN_VALUE;
+                //如果是最后一个值的时候发生超出行为，那么把x设为元素个数1.
+                if(columnList.size()-1==i) {
+                    nowSpot.setX(spotCount);//段结束点3
+                    comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
+                }
+                //重新初始化一个斜率。
+                upSlope = -Float.MAX_VALUE;
                 downSlope = Float.MAX_VALUE;
             }
+            else  spotCount++;//否则计数加一
         }
+        if(comLen/oriLen>0.5)
+            comCount++;
+//        System.out.print(String.format("%.2f",comLen/oriLen)+",");
         return resultList;
     }
 
+    /**
 
+     *@描述  对一个整型列进行压缩.
+
+     *@参数  [columnList, threshold]
+
+     *@返回值  java.util.ArrayList<Model.Abstract.Spot>
+
+     *@创建人  kcx
+
+     *@创建时间  2018/10/31
+
+     *@修改人和其它信息
+
+     */
     //It's for Integer number
     public ArrayList<Spot> revolvingDoorBaseLineforInteger(ArrayList<String> columnList,double threshold) {
+
         if (columnList == null || columnList.size() == 0)
             return null;
-
         float e=(float)threshold/20;
         float newValue=Float.parseFloat(columnList.get(0));
         if(newValue==0)  e=0.05f;
@@ -225,6 +306,8 @@ public class RealTimeCompression implements LossyCompression {
         fSubSpot downSpot = null;
         ISubSpot nowSpot = null;
         ISubSpot preSpot = null;
+        //统计当前阶段的数据的个数。
+        int spotCount=0;
         try {
             upSpot = new fSubSpot(0, Float.parseFloat(columnList.get(0)) + e);
             downSpot = new fSubSpot(0, Float.parseFloat(columnList.get(0)) - e);
@@ -235,11 +318,19 @@ public class RealTimeCompression implements LossyCompression {
             return null;
         }
         resultList.add(nowSpot);
+        spotCount++;
         double upSlope = Integer.MIN_VALUE;
         double downSlope = Integer.MAX_VALUE;
+        upSlope = -Float.MAX_VALUE;
+        downSlope = Float.MAX_VALUE;
 
-
+        //原始列的大小
+        double oriLen=0;
+        //压缩后的列的大小
+        double comLen=0;
+        oriLen=columnList.get(0).length();
         for (int i = 1; i < columnList.size(); i++) {
+            oriLen+=columnList.get(i).length();
             nowSpot = new ISubSpot(i,(long)Float.parseFloat(columnList.get(i)));
             float tempUpSlope = spt.slopCalculation(upSpot, nowSpot);
             float tempDownSlope = spt.slopCalculation(downSpot, nowSpot);
@@ -247,30 +338,49 @@ public class RealTimeCompression implements LossyCompression {
                 upSlope = tempUpSlope;
             if (tempDownSlope < downSlope)
                 downSlope = tempDownSlope;
-            if (i == columnList.size() - 1&&downSlope >=upSlope) {
+            if (i == columnList.size() - 1&&downSlope >=upSlope) {//如果到达最后一个元素，并且没有超出阈值范围
                 preSpot = (ISubSpot) resultList.get(resultList.size() - 1);
-                preSpot.setZ(Long.parseLong(columnList.get(i)));
+                spotCount++;
+                preSpot.setZ(Long.parseLong(columnList.get(i)));//段结束点1
+                comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
+                preSpot.setX(spotCount);
                 preSpot.flag = false;
             }
-            if (downSlope <upSlope) {
+            else if (downSlope <upSlope) {//数据超出阈值范围
                 preSpot = (ISubSpot) resultList.get(resultList.size() - 1);
-                if (preSpot.getX() != i - 1) {
+                //存储元素个数。
                     preSpot.setZ(Long.parseLong(columnList.get(i - 1)));
-                    preSpot.flag = false;
-                }
-               newValue=Float.parseFloat(columnList.get(i));
+                    preSpot.setX(spotCount);//段结束点2
+                    comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
+                //重新设置动态阈值
+                newValue=Float.parseFloat(columnList.get(i));
                 if(newValue==0)  e=0.05f;
                 else e=Math.abs(newValue)*p;
+                //重新设置元素个数
+                spotCount=1;
+
+                //重新设置上斜率点和下斜率点
                 upSpot.setX(i);
                 upSpot.setY(Long.parseLong(columnList.get(i)) + e);
                 downSpot.setX(i);
                 downSpot.setY(Long.parseLong(columnList.get(i)) - e);
+                //重新设置起始点
                 nowSpot = new ISubSpot(i, (long)Float.parseFloat(columnList.get(i)));
                 resultList.add(nowSpot);
-                upSlope = Float.MIN_VALUE;
+                //如果是最后一个值的时候发生超出行为，那么把x设为元素个数1.
+                if(columnList.size()-1==i) {
+                    nowSpot.setX(spotCount);//行结束点，也是段结束点3。
+                    comLen+=(preSpot+"").length();//在段结束点统计压缩后的字符串长度。
+                }
+                //重新给上下斜率初始化一个值。
+                upSlope = -Float.MAX_VALUE;
                 downSlope = Float.MAX_VALUE;
             }
+            else spotCount++;//元素个数加1
         }
+        if(comLen/oriLen>0.5)
+            comCount++;
+//            System.out.print(String.format("%.2f",comLen/oriLen)+",");
         return resultList;
     }
     public static float thresholdGenerate() {

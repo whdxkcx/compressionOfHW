@@ -39,9 +39,9 @@ public class ISubSpot extends Spot {
 
     @Override
     public String toString() {
-
-        if(flag)
-            return x+"?"+y;
-        return x+"?"+y+"?"+z;
+        if(y==z)
+            if(y!=0) return x + ":" + y;
+            else  return x+":";
+        return x+":"+y+":"+z;
     }
 }

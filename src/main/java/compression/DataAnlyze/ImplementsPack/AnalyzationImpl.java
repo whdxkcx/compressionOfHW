@@ -1,8 +1,6 @@
 package DataAnlyze.ImplementsPack;
 
 import DataAnlyze.InterfacePack.AnalyzationOfFile;
-import Model.ImplementsPack.AObject;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -10,7 +8,8 @@ import java.util.HashSet;
 public class AnalyzationImpl implements AnalyzationOfFile {
      public static void main(String[] args) throws IOException {
              AnalyzationOfFile af=new AnalyzationImpl();
-     System.out.println(af.getAmplitudeFromFile("E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\input\\UCELLnew.csv"));
+             System.out.println(af.getStaadardDeviationBaseLine("E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\input\\UCELLnew.csv"));
+//     System.out.println(af.getAmplitudeFromFile("E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\input\\UCELLnew.csv"));
 //             System.out.println(af.dataTypeAnalyzation("C:\\Users\\90765\\Desktop\\压缩试验数据\\input\\UCELLnew.csv"));
 //         int a[]=((AnalyzationImpl) af).conutOffloat(af.dataTypeAnalyzation("/data/compressionData/input/test2.csv"));
 //         System.out.println("整数个数为"+a[0]);
@@ -107,6 +106,79 @@ public class AnalyzationImpl implements AnalyzationOfFile {
             originalAr=lineOriginal.split(",");
             rebuildAr=lineRebuild.split(",");
             }
+    }
+
+    //计算每一列的标准差
+    @Override
+    public ArrayList<Double> getStaadardDeviationBaseLine(String filePath) throws IOException {
+        BufferedReader reader= new BufferedReader(new FileReader(filePath));
+        ArrayList<Double> resList=new ArrayList<>();
+        ArrayList<Double> meanList=getMeanOfBaseLine(filePath);
+        String line=null;
+        String lineSplit[]=null;
+        int columnCount=0;
+        double rowCount=meanList.get(meanList.size()-1);
+        boolean flag=true;
+        while((line=reader.readLine())!=null) {
+            lineSplit = line.split(",");
+            if (flag){
+                flag = false;
+                columnCount = lineSplit.length;
+                for (int i = 0; i < columnCount-3; i++)
+                    resList.add(0.0);
+            }
+            if (lineSplit[0].equals("startTime"))
+                continue;
+            for(int i=3;i<columnCount;i++){
+                double temp=Double.parseDouble(lineSplit[i].equals("NA")?"0":lineSplit[i]);
+                double val=Math.pow(temp-meanList.get(i-3),2);
+                resList.set(i-3,resList.get(i-3)+val/(rowCount-1));
+            }
+        }
+        System.out.println(meanList);
+        System.out.println(resList);
+        for(int i=0;i<columnCount-3;i++){
+            if(meanList.get(i)==0)
+                resList.set(i,0.0);
+            else
+                resList.set(i,Math.sqrt(resList.get(i))/meanList.get(i));
+        }
+        System.out.println();
+         return resList;
+    }
+
+    //计算每一列的平均值
+    @Override
+    public ArrayList<Double> getMeanOfBaseLine(String filePath) throws IOException {
+        BufferedReader reader= new BufferedReader(new FileReader(filePath));
+        ArrayList<Double> resList=new ArrayList<>();
+        String line=null;
+        String lineSplit[]=null;
+        int columnCount=0;
+        int rowCount=0;
+        boolean flag=true;
+        while((line=reader.readLine())!=null){
+            lineSplit=line.split(",");
+            if(flag){
+                flag=false;
+                columnCount=lineSplit.length;
+                for(int i=0;i<columnCount-3;i++)
+                     resList.add(0.0);
+            }
+            if(lineSplit[0].equals("startTime"))
+                continue;
+            rowCount++;
+            for(int i=3;i<columnCount;i++){
+                float temp=Float.parseFloat(lineSplit[i].equals("NA")?"0":lineSplit[i]);
+                resList.set(i-3,resList.get(i-3)+temp);
+            }
+        }
+
+        for(int i=0;i<columnCount-3;i++){
+            resList.set(i,resList.get(i)/columnCount);
+        }
+        resList.add((double)rowCount);
+        return resList;
     }
 
     @Override

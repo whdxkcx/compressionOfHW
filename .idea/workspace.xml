@@ -2,9 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf37342a-fc8a-4659-a22e-38f1bca23488" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/Bit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/CurveFittingDecompression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Implements/BestCurveFittingCompression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/CurveObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/compression/Tools/Inplements/ByteConverterImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/compression/Tools/InterfacePack/byteConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Decompression/ImplementsPack/CurveFittingDecompression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/LossyCompression/Implements/BestCurveFittingCompression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Model/ImplementsPack/Bit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Model/ImplementsPack/CurveObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Tools/Inplements/ByteConverterImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Tools/InterfacePack/byteConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/DataAnlyze/ImplementsPack/AnalyzationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/DataAnlyze/ImplementsPack/AnalyzationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/DataAnlyze/InterfacePack/AnalyzationOfFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/DataAnlyze/InterfacePack/AnalyzationOfFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/RealTimeDeCompresiion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/RealTimeDeCompresiion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Decompression/InterfacePack/LossyDecompression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/Decompression/InterfacePack/LossyDecompression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Implements/RealTimeCompression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Implements/RealTimeCompression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Interface/LossyCompression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Interface/LossyCompression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/Bit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/Bit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/ISubSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/ISubSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/fSubSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/fSubSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/utf8EncodeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/utf8EncodeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/NoLossyCompression/ImplementsPack/NoLossyCompressionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/NoLossyCompression/ImplementsPack/NoLossyCompressionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/compression/Test/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataAnlyze/ImplementsPack/AnalyzationImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataAnlyze/ImplementsPack/AnalyzationImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataAnlyze/InterfacePack/AnalyzationOfFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataAnlyze/InterfacePack/AnalyzationOfFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Decompression/ImplementsPack/RealTimeDeCompresiion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Decompression/ImplementsPack/RealTimeDeCompresiion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Decompression/InterfacePack/LossyDecompression.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Decompression/InterfacePack/LossyDecompression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LossyCompression/Implements/RealTimeCompression.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LossyCompression/Implements/RealTimeCompression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LossyCompression/Interface/LossyCompression.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LossyCompression/Interface/LossyCompression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/ImplementsPack/ISubSpot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/ImplementsPack/ISubSpot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/ImplementsPack/fSubSpot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/ImplementsPack/fSubSpot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/ImplementsPack/utf8EncodeImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/ImplementsPack/utf8EncodeImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NoLossyCompression/ImplementsPack/NoLossyCompressionImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/NoLossyCompression/ImplementsPack/NoLossyCompressionImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Test/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Test/test.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -144,43 +176,48 @@
     <session id="-1128170899">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.41" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.44" value="1" />
+          <entry key="project.open.time.49" value="1" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="8" />
+          <entry key="java" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="8" />
+          <entry key="JAVA" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2928" />
+          <entry key="ft" value="65" />
+          <entry key="java" value="11762" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2928" />
+          <entry key="JAVA" value="11762" />
+          <entry key="VTL" value="65" />
         </counts>
       </usages-collector>
     </session>
     <session id="-409304345">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -207,98 +244,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/compression/LossyCompression/Implements/RealTimeCompression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1364">
-              <caret line="235" column="9" lean-forward="true" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="9" />
+            <state relative-caret-position="-9028">
+              <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#589#590#0" expanded="true" />
+                <element signature="e#619#620#0" expanded="true" />
+                <element signature="e#683#684#0" expanded="true" />
+                <element signature="e#735#736#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+              <folding>
+                <element signature="e#18107#18113#0" expanded="true" />
+                <element signature="e#18114#18120#0" expanded="true" />
+                <element signature="e#18153#18159#0" expanded="true" />
+                <element signature="e#18160#18166#0" expanded="true" />
+                <element signature="e#18197#18203#0" expanded="true" />
+                <element signature="e#18204#18210#0" expanded="true" />
+                <element signature="e#18236#18240#0" expanded="true" />
+                <element signature="e#18247#18251#0" expanded="true" />
+                <element signature="e#18277#18281#0" expanded="true" />
+                <element signature="e#18282#18286#0" expanded="true" />
+                <element signature="e#18467#18471#0" expanded="true" />
+                <element signature="e#18478#18482#0" expanded="true" />
+                <element signature="e#18580#18584#0" expanded="true" />
+                <element signature="e#18591#18595#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/fSubSpot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/compression/Tools/InterfacePack/SpotTools.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/ISubSpot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/compression/NoLossyCompression/InterfacePack/NoLossyCompressionInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="41" selection-start-column="41" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/compression/NoLossyCompression/ImplementsPack/NoLossyCompressionImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/utf8EncodeImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/compression/Tools/InterfacePack/byteConverter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/Bit.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/compression/Tools/Inplements/ByteConverterImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="1825">
+              <caret line="73" column="17" selection-start-line="73" selection-start-column="11" selection-end-line="73" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/CurveFittingDecompression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="207" column="29" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/RealTimeDeCompresiion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4300">
-              <caret line="179" column="17" selection-start-line="179" selection-start-column="17" selection-end-line="179" selection-end-column="17" />
+            <state relative-caret-position="397">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -330,7 +342,6 @@
         <option value="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Interface/RealtimeCompression.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Interface/compression.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Interface/NoLossyCompression.java" />
-        <option value="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Interface/LossyCompression.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/Model/Abstract/Point.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/Test/fSubSpot.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/Test/SubSpot.java" />
@@ -339,23 +350,31 @@
         <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/AObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/AfterObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/NoLossyCompression/InterfacePack/NoLossyCompressionInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/compression/Decompression/InterfacePack/LossyDecompression.java" />
-        <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/ISubSpot.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/Tools/InterfacePack/SpotTools.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/Tools/Inplements/SpotToolsImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/utf8EncodeImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/Test/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/TypeOfFile.java" />
-        <option value="$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/RealTimeDeCompresiion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/compression/DataAnlyze/InterfacePack/AnalyzationOfFile.java" />
-        <option value="$PROJECT_DIR$/src/main/java/compression/DataAnlyze/ImplementsPack/AnalyzationImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/DeviationCalculation/InterfacePack/RelativeDeviation.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/DeviationCalculation/Implements/RelativeDeviationImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/compression/NoLossyCompression/ImplementsPack/NoLossyCompressionImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/DataAnlyze/InterfacePack/AnalyzationOfFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/DataAnlyze/ImplementsPack/AnalyzationImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/ISubSpot.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/fSubSpot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/utf8EncodeImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/Test/test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/Bit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/NoLossyCompression/ImplementsPack/NoLossyCompressionImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Interface/LossyCompression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Tools/Inplements/byteConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Tools/Inplements/ByteConverterImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Tools/InterfacePack/byteConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Decompression/InterfacePack/CurveFittingDecompression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Decompression/InterfacePack/LossyDecompression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/RealTimeDeCompresiion.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/CurveFittingDecompression.java" />
         <option value="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Implements/RealTimeCompression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/CurveObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/LossyCompression/Implements/BestCurveFittingCompression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/Bit.java" />
       </list>
     </option>
   </component>
@@ -389,9 +408,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="814" />
-    <option name="height" value="867" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="816" />
+    <option name="height" value="576" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -400,13 +420,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
@@ -433,6 +457,35 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="compression" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="DeviationCalculation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="DeviationCalculation" type="462c0819:PsiDirectoryNode" />
+              <item name="Implements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="DeviationCalculation" type="462c0819:PsiDirectoryNode" />
+              <item name="InterfacePack" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
@@ -452,6 +505,83 @@
               <item name="compression" type="462c0819:PsiDirectoryNode" />
               <item name="LossyCompression" type="462c0819:PsiDirectoryNode" />
               <item name="Implements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="LossyCompression" type="462c0819:PsiDirectoryNode" />
+              <item name="Interface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Abstract" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="ImplementsPack" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="Test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="Tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="Tools" type="462c0819:PsiDirectoryNode" />
+              <item name="Inplements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compressionOfHW-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+              <item name="Tools" type="462c0819:PsiDirectoryNode" />
+              <item name="InterfacePack" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="compressionOfHW-master" type="b2602c69:ProjectViewProjectNode" />
@@ -501,6 +631,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -508,14 +639,14 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540782873630" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542190632633" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -534,7 +665,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.NoLossyCompressionImpl">
+  <component name="RunManager" selected="Application.BestCurveFittingCompression">
     <configuration name="AnalyzationImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DataAnlyze.ImplementsPack.AnalyzationImpl" />
       <module name="comperession" />
@@ -548,12 +679,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test.Main" />
+    <configuration name="BestCurveFittingCompression" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LossyCompression.Implements.BestCurveFittingCompression" />
       <module name="comperession" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Test.*" />
+          <option name="PATTERN" value="LossyCompression.Implements.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CurveFittingDecompression" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Decompression.ImplementsPack.CurveFittingDecompression" />
+      <module name="comperession" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Decompression.ImplementsPack.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -569,19 +713,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="NoLossyCompression.ImplementsPack.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RealTimeDeCompresiion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Decompression.ImplementsPack.RealTimeDeCompresiion" />
-      <module name="comperession" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Decompression.ImplementsPack.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -666,17 +797,17 @@
       <item itemvalue="Application.NoLossyCompressionImpl" />
       <item itemvalue="Application.AnalyzationImpl" />
       <item itemvalue="Application.test" />
-      <item itemvalue="Application.RealTimeDeCompresiion" />
       <item itemvalue="Application.RelativeDeviationImpl" />
-      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.BestCurveFittingCompression" />
+      <item itemvalue="Application.CurveFittingDecompression" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BestCurveFittingCompression" />
+        <item itemvalue="Application.CurveFittingDecompression" />
         <item itemvalue="Application.test" />
-        <item itemvalue="Application.RelativeDeviationImpl" />
-        <item itemvalue="Application.RealTimeDeCompresiion" />
         <item itemvalue="Application.AnalyzationImpl" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.RelativeDeviationImpl" />
       </list>
     </recent_temporary>
   </component>
@@ -759,17 +890,56 @@
       <workItem from="1538102228992" duration="4288000" />
       <workItem from="1538986972716" duration="14347000" />
       <workItem from="1539571069899" duration="13904000" />
-      <workItem from="1540521914918" duration="5794000" />
+      <workItem from="1539762410498" duration="384000" />
+      <workItem from="1539777422283" duration="30592000" />
+      <workItem from="1540280034326" duration="28900000" />
+      <workItem from="1541584067971" duration="61000" />
+      <workItem from="1542181179110" duration="2916000" />
+      <workItem from="1542972401100" duration="1185000" />
+      <workItem from="1542978426199" duration="412000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192685000" />
+    <option name="totallyTimeSpent" value="315310000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="835" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1773779" />
+      <window_info id="Structure" order="1" weight="0.2497979" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30634278" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39857143" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" visible="true" weight="0.32928476" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32714286" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.24935733" />
+      <window_info anchor="right" id="Database" order="7" weight="0.32904884" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32904884" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16966581" />
       <window_info id="Structure" order="1" weight="0.2497979" />
       <window_info id="Designer" order="2" />
@@ -780,8 +950,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32523617" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3985765" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30634278" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39857143" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -790,50 +960,17 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32928476" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32793522" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32714286" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24967742" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Database" order="5" weight="0.32967743" />
-      <window_info anchor="right" id="Maven Projects" order="6" weight="0.32967743" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14974293" />
-      <window_info id="Structure" order="1" weight="0.2497979" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32523617" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3985765" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32928476" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32793522" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24967742" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Database" order="5" weight="0.32967743" />
-      <window_info anchor="right" id="Maven Projects" order="6" weight="0.32967743" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.24935733" />
+      <window_info anchor="right" id="Database" order="7" weight="0.32904884" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32904884" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -841,6 +978,13 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="bit" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -887,60 +1031,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/AfterObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/AObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Tools/Inplements/SpotToolsImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/LossyCompression/Interface/LossyCompression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/compression/Test/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/DeviationCalculation/InterfacePack/RelativeDeviation.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/DataAnlyze/ImplementsPack/AnalyzationImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="128" column="20" lean-forward="true" selection-start-line="128" selection-start-column="20" selection-end-line="128" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/DataAnlyze/InterfacePack/AnalyzationOfFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="14" column="103" selection-start-line="14" selection-start-column="103" selection-end-line="14" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Decompression/InterfacePack/LossyDecompression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state relative-caret-position="333">
+          <caret line="207" column="29" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -951,37 +1046,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/DeviationCalculation/Implements/RelativeDeviationImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/DataAnlyze/InterfacePack/AnalyzationOfFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="155" column="17" lean-forward="true" selection-start-line="155" selection-start-column="17" selection-end-line="155" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="400">
+          <caret line="18" column="86" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Test/test.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Tools/Inplements/SpotToolsImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="274">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Float.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Double.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1300">
-          <caret line="77" column="77" selection-start-line="77" selection-start-column="77" selection-end-line="77" selection-end-column="77" />
+        <state relative-caret-position="200">
+          <caret line="102" column="50" lean-forward="true" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/fSubSpot.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/DataAnlyze/ImplementsPack/AnalyzationImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+        <state relative-caret-position="325">
+          <caret line="150" selection-start-line="148" selection-end-line="150" />
         </state>
       </provider>
     </entry>
@@ -992,10 +1081,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/ISubSpot.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Float.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+        <state relative-caret-position="412">
+          <caret line="77" column="77" lean-forward="true" selection-start-line="77" selection-start-column="77" selection-end-line="77" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -1006,50 +1095,199 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/RealTimeDeCompresiion.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/ISubSpot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4300">
-          <caret line="179" column="17" selection-start-line="179" selection-start-column="17" selection-end-line="179" selection-end-column="17" />
+        <state relative-caret-position="500">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/fSubSpot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="43" column="31" lean-forward="true" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/utf8EncodeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/compression/NoLossyCompression/ImplementsPack/NoLossyCompressionImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="275">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/LossyCompression/Interface/LossyCompression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Tools/Inplements/byteConverter.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Decompression/InterfacePack/CurveFittingDecompression.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/RealTimeDeCompresiion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="19" column="50" lean-forward="true" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Decompression/InterfacePack/LossyDecompression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/AObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Test/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="27" column="77" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/LossyCompression/Implements/BestCurveFittingCompression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1875">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/utf8EncodeImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Tools/InterfacePack/byteConverter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Tools/Inplements/ByteConverterImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="207" column="29" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="29" />
+        <state relative-caret-position="1825">
+          <caret line="73" column="17" selection-start-line="73" selection-start-column="11" selection-end-line="73" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/DeviationCalculation/InterfacePack/RelativeDeviation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/AfterObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="10" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/Bit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="1375">
+          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/DeviationCalculation/Implements/RelativeDeviationImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="205" column="9" lean-forward="true" selection-start-line="205" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Model/ImplementsPack/CurveObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="56" column="69" selection-start-line="56" selection-start-column="69" selection-end-line="56" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#215#216#0" expanded="true" />
+            <element signature="e#247#248#0" expanded="true" />
+            <element signature="e#297#298#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#449#450#0" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#843#844#0" expanded="true" />
+            <element signature="e#897#898#0" expanded="true" />
+            <element signature="e#935#936#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/compression/Decompression/ImplementsPack/CurveFittingDecompression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/compression/LossyCompression/Implements/RealTimeCompression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1364">
-          <caret line="235" column="9" lean-forward="true" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="9" />
+        <state relative-caret-position="-9028">
+          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+          <folding>
+            <element signature="e#18107#18113#0" expanded="true" />
+            <element signature="e#18114#18120#0" expanded="true" />
+            <element signature="e#18153#18159#0" expanded="true" />
+            <element signature="e#18160#18166#0" expanded="true" />
+            <element signature="e#18197#18203#0" expanded="true" />
+            <element signature="e#18204#18210#0" expanded="true" />
+            <element signature="e#18236#18240#0" expanded="true" />
+            <element signature="e#18247#18251#0" expanded="true" />
+            <element signature="e#18277#18281#0" expanded="true" />
+            <element signature="e#18282#18286#0" expanded="true" />
+            <element signature="e#18467#18471#0" expanded="true" />
+            <element signature="e#18478#18482#0" expanded="true" />
+            <element signature="e#18580#18584#0" expanded="true" />
+            <element signature="e#18591#18595#0" expanded="true" />
           </folding>
         </state>
       </provider>
