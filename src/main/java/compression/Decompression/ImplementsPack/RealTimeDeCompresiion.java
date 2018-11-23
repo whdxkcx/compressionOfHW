@@ -172,6 +172,11 @@ public class RealTimeDeCompresiion implements LossyDecompression {
         }
     }
 
+    @Override
+    public void bestCurveFittingDeCompression(String compressiomPath, String deCompressionPath) throws IOException {
+
+    }
+
     public float[] functionCalculation(int x1, float y1, int x2, float y2) {
         float[] a = new float[2];
         float k = (y2 - y1) / (x2 - x1);

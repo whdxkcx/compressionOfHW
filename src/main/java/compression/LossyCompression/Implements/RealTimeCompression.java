@@ -118,7 +118,23 @@ public class RealTimeCompression implements LossyCompression {
 
 
 
+    /**
+
+     *@描述 对一个对象的所有数据进行压缩.
+
+     *@参数  [objectList]
+
+     *@返回值  Model.ImplementsPack.AfterObject
+
+     *@创建人  kcx
+
+     *@创建时间  2018/10/31
+
+     *@修改人和其它信息
+
+     */
     public AfterObject compressionBaseObject(ArrayList<AObject> objectList) {
+
         AfterObject afo = new AfterObject();
         afo.setQuotaList(new ArrayList<>());
         afo.setStartTime(objectList.get(0).getStartTime());
@@ -150,6 +166,21 @@ public class RealTimeCompression implements LossyCompression {
     }
 
 
+    /**
+
+     *@描述  对一个浮点列进行旋转门压缩
+
+     *@参数  [columnList, threshold]
+
+     *@返回值  java.util.ArrayList<Model.Abstract.Spot>
+
+     *@创建人  kcx
+
+     *@创建时间  2018/10/31
+
+     *@修改人和其它信息
+
+     */
     //It's for floating point number.
     public ArrayList<Spot> revolvingDoorBaseLine(ArrayList<String> columnList,double thresjold) {
         if (columnList == null || columnList.size() == 0)
@@ -240,18 +271,32 @@ public class RealTimeCompression implements LossyCompression {
             }
             else  spotCount++;//否则计数加一
         }
-        if(comLen/oriLen>1)
+        if(comLen/oriLen>0.5)
             comCount++;
 //        System.out.print(String.format("%.2f",comLen/oriLen)+",");
         return resultList;
     }
 
+    /**
 
+     *@描述  对一个整型列进行压缩.
+
+     *@参数  [columnList, threshold]
+
+     *@返回值  java.util.ArrayList<Model.Abstract.Spot>
+
+     *@创建人  kcx
+
+     *@创建时间  2018/10/31
+
+     *@修改人和其它信息
+
+     */
     //It's for Integer number
     public ArrayList<Spot> revolvingDoorBaseLineforInteger(ArrayList<String> columnList,double threshold) {
+
         if (columnList == null || columnList.size() == 0)
             return null;
-
         float e=(float)threshold/20;
         float newValue=Float.parseFloat(columnList.get(0));
         if(newValue==0)  e=0.05f;
@@ -333,7 +378,7 @@ public class RealTimeCompression implements LossyCompression {
             }
             else spotCount++;//元素个数加1
         }
-        if(comLen/oriLen>1)
+        if(comLen/oriLen>0.5)
             comCount++;
 //            System.out.print(String.format("%.2f",comLen/oriLen)+",");
         return resultList;
