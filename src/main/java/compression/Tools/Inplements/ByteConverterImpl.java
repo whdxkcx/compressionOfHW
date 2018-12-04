@@ -37,6 +37,37 @@ public class ByteConverterImpl implements byteConverter {
 
     /**
 
+     *@描述  根据传入的字节数来对浮点数进行截断，然后转换成字节数组
+
+     *@参数  [data, num]
+
+     *@返回值  byte[]
+
+     *@创建人  kcx
+
+     *@创建时间  2018/11/27
+
+     *@修改人和其它信息
+
+     */
+    public byte[] floatArrayToByteArray(float[] data,int num) {
+        if(num==4) return floatArrayToByteArray(data);
+        int len=data.length;
+        byte bytes[]=new byte[num*len];
+        for(int i=0;i<len;i++){
+            byte[] bs=floatToByteArray(data[i]);
+            try {
+                for (int j = i * num, k = 0; k < num; j++, k++)
+                    bytes[j] = bs[k];
+            }
+            catch (Exception e){
+                System.out.println(num);
+            }
+        }
+        return bytes;
+    }
+    /**
+
      *@描述 把一个float类型的字符转换为字节数组。
 
      *@参数  [f]
@@ -54,6 +85,7 @@ public class ByteConverterImpl implements byteConverter {
         int intBits = Float.floatToIntBits(data);
         return getBytes(intBits);
     }
+
 
 
     /**
