@@ -22,7 +22,6 @@ public class CurveFittingDecompression  implements LossyCompression {
     }
 
     /**
-
      *@描述  最佳曲线拟合算法
 
      *@参数  [originalPath, compressionPath]

@@ -7,6 +7,32 @@ public class AObject {
     private String endTime = "";
     private String objId = "";
     private ArrayList<String> quotaList = null;
+    private float maxValue =Float.MAX_VALUE;
+    private float minValue=-Float.MAX_VALUE;
+    private float standardDeviation = 0;
+
+     //获取该列的中值。
+    public float getMiddle(){
+        return (maxValue+minValue)/2;
+    }
+
+    public void addVal(String val){
+        if(quotaList==null)  quotaList=new ArrayList<>();
+        if(val.equals("NA")) val="0";
+        quotaList.add(val);
+    }
+
+    public String getVal(int i){
+        return quotaList.get(i);
+    }
+
+    public float getStandardDeviation() {
+        return standardDeviation;
+    }
+
+    public void setStandardDeviation(float standardDeviation) {
+        this.standardDeviation = standardDeviation;
+    }
 
     public String getObjId() {
         return objId;
