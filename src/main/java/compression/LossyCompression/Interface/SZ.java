@@ -8,6 +8,6 @@ import java.util.ArrayList;
  * @描述
  */
 public interface SZ {
-    public float[] floatCutComprression(ArrayList<Float> originalVal);
+    public byte[] floatCutComprression(ArrayList<Float> originalVal   ,float MiddleVal,float e);
     public float[] leadingZeroCompression(float[] afterFloatCutVal);
 }
