@@ -24,7 +24,6 @@ public class pythonListToll {
 
      */
     public static ArrayList<String> getList(String line){
-
         String[] lineArr=line.split(",");
         ArrayList<String> columnList=new ArrayList<>();
         for(int i=0;i<lineArr.length;i++) {

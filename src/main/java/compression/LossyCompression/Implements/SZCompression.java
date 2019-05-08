@@ -28,11 +28,10 @@ public class SZCompression  {
      *@修改人和其它信息
 
      */
-    public static int leadingZeroCount(float afterFloatTrunCatVal,float preccedingVal) {
-        byte[] afterBytes=bc.floatToByteArray(afterFloatTrunCatVal);
+    public static int leadingZeroCount(byte[] afterBytes,float preccedingVal) {
         byte[] preceedingbytes=bc.floatToByteArray(preccedingVal);
         int num=0;
-        for(int i=0;i<3;i++)
+        for(int i=0;i<afterBytes.length;i++)
             if((afterBytes[i] ^ preceedingbytes[i])==0) num++;
         return num;
     }
@@ -54,9 +53,10 @@ public class SZCompression  {
 
      */
     public static byte[] leadingZeroCompression(float afterFloatTrunCatVal,int truncatCount,int leadingZreoCount) {
+        if(truncatCount-leadingZreoCount<0) System.out.println(truncatCount+":"+leadingZreoCount);
         byte[] bytes=new byte[truncatCount-leadingZreoCount];
         byte[] aftValBytes=bc.floatToByteArray(afterFloatTrunCatVal);
-        for(int i=leadingZreoCount;i<truncatCount;i++)
+        for(int i=0;i<truncatCount-leadingZreoCount;i++)
             bytes[i]=aftValBytes[i];
         return bytes;
     }
@@ -74,7 +74,6 @@ public class SZCompression  {
      *@创建时间  2019/3/24
 
      *@修改人和其它信息
-
      */
     public static byte[] floatTruncatComprression(float originalVal,float MiddleVal,int count) {
         float NormalizedData=originalVal-MiddleVal;
@@ -131,5 +130,29 @@ public class SZCompression  {
     public static int Exp(float f) {
         int intBits = Float.floatToIntBits(f);
         return ((intBits >>> 23) & 255) - 127;
+    }
+
+    public static float[] getRelativeCoffecients(ArrayList<String> columnList){
+        float[] coffecientArr=new float[2];
+        //求出中值和数据半径。
+        //先求出最大值和最小值
+        int num=columnList.size();
+        float maxVal=-Float.MAX_VALUE;
+        float minVal=Float.MAX_VALUE;
+        float absMinVal=Float.MAX_VALUE;
+        for(int i=0;i<num;i++){
+            float val=Float.parseFloat(columnList.get(i));
+            maxVal=Math.max(maxVal,val);
+            minVal=Math.min(minVal,val);
+            absMinVal=Math.min(absMinVal,Math.abs(val));
+        }
+        //根据最大值和最小值求中值和数据半径
+        float middleVal=(maxVal+minVal)/2;
+        float radiusVal=maxVal-middleVal;
+        float e=(float)(absMinVal*0.1);
+        float byteCount=getMinNumberOfMantissaBits(radiusVal,e);
+        coffecientArr[0]=middleVal;
+        coffecientArr[1]=byteCount;
+        return coffecientArr;
     }
 }

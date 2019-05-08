@@ -89,14 +89,14 @@ public class ByteConverterImpl implements byteConverter {
         byte bytes[]=new byte[count];
         byte originalBytes[]=floatToByteArray(originalVal);
         for(int i=0;i<count;i++)
-            originalBytes[i]=bytes[i];
-        return originalBytes;
+            bytes[i]=originalBytes[i];
+        return bytes;
     }
 
 
     /**
 
-     *@描述   把一个包含count字节的自己数组转化为一个浮点数
+     *@描述   把一个包含count字节的数组转化为一个浮点数
 
      *@参数  [bytes, count]
 
@@ -135,10 +135,10 @@ public class ByteConverterImpl implements byteConverter {
 
      */
     public static int getIntFrombytes(byte[] bytes,int index){
-        return 	(0xff000000 	& (bytes[index+0] << 24))  |
-                (0x00ff0000 	& (bytes[index+1] << 16))  |
-                (0x0000ff00 	& (bytes[index+2] << 8))   |
-                (0x000000ff 	&  bytes[index+3]);
+        return 	(0xff000000 & (bytes[index+0] << 24))  |
+                (0x00ff0000 & (bytes[index+1] << 16))  |
+                (0x0000ff00 & (bytes[index+2] << 8))   |
+                (0x000000ff &  bytes[index+3]);
     }
     /**
 
@@ -160,8 +160,6 @@ public class ByteConverterImpl implements byteConverter {
         return getBytes(intBits);
     }
 
-
-
     /**
 
      *@描述  把整数转化为字节数组
@@ -179,13 +177,12 @@ public class ByteConverterImpl implements byteConverter {
      */
     public static byte[] getBytes(int data){
         byte[] bytes = new byte[4];
-        bytes[0] = (byte) (data & 0xff);
-        bytes[1] = (byte) ((data & 0xff00) >> 8);
-        bytes[2] = (byte) ((data & 0xff0000) >> 16);
-        bytes[3] = (byte) ((data & 0xff000000) >> 24);
+        bytes[3] = (byte) (data & 0xff);
+        bytes[2] = (byte) ((data & 0xff00) >> 8);
+        bytes[1] = (byte) ((data & 0xff0000) >> 16);
+        bytes[0] = (byte) ((data & 0xff000000) >> 24);
         return bytes;
     }
-
 
     /**
 
@@ -204,8 +201,6 @@ public class ByteConverterImpl implements byteConverter {
      */
     @Override
     public float[] byteArrayToFloatArray(byte[] b) {
-
         return new float[0];
     }
-
 }

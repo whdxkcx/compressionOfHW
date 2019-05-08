@@ -18,7 +18,7 @@ public class AObject {
 
     public void addVal(String val){
         if(quotaList==null)  quotaList=new ArrayList<>();
-        if(val.equals("NA")) val="0";
+        if(val.equals("NA")||val.equals("")) val="0";
         quotaList.add(val);
     }
 
