@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class OriginalSZDecompression {
     public static  void main(String[] args)  throws IOException{
-        String filePath="E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\NoModelChangeWithLossLess\\UCELL1（c1).csv";
+        String filePath="E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\NoModelChangeWithLossLess\\UCELL1(c).csv";
         String outputPath="E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\NoModelChangeWithLosslessDecompression\\UCELL1（cde).csv";
         deCompression(filePath,outputPath);
     }

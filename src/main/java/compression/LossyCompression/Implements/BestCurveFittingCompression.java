@@ -31,8 +31,8 @@ public class BestCurveFittingCompression implements LossyCompression {
     public SpotTools spt;
     public SZCompression sz = new SZCompression();
     ByteConverterImpl bc = new ByteConverterImpl();
-    static String inputFilePath = "E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\clustering\\test.csv";
-    static String outputFilePath = "E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\NoModelChangeWithLossLess\\test（c1).csv";
+    static String inputFilePath = "E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\clustering\\UCELL1(c).csv";
+    static String outputFilePath = "E:\\实验室学习\\项目\\数据压缩\\UCELL.csv\\NoModelChangeWithLossLess\\UCELL1(c).csv";
     public static void main(String[] args) throws IOException {
         BestCurveFittingCompression bcfc = new BestCurveFittingCompression();
 
